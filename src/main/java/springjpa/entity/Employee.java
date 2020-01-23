@@ -1,17 +1,17 @@
-package springjpa.bo;
+package springjpa.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name="EMPLOYEE")
-@NamedQuery(name = "Employee.findByLastNameNamedQuery",
+@NamedQuery(name = "Employee.findEmployeeByNamedQuery",
         query = "SELECT e FROM Employee e WHERE e.lastName like  concat('%', ?1, '%')")
 public class Employee implements Serializable {
 
     @Id
     @Column(name = "ID", nullable = false, unique = true)
-    private int id;
+    private Integer id;
 
     @Column(name = "FIRST_NAME", nullable = false)
     private String firstName;
@@ -19,14 +19,18 @@ public class Employee implements Serializable {
     @Column(name = "LAST_NAME", nullable = false)
     private String lastName;
 
-    public Employee(){
-    }
+    @Column(name = "STATUS", nullable = false)
+    private Integer status;
 
-    public void setId(int id) {
+    @ManyToOne
+    @JoinColumn(name = "COMPANY_ID")
+    private Company company;
+
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -44,5 +48,21 @@ public class Employee implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 }

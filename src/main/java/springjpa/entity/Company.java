@@ -1,9 +1,11 @@
-package springjpa.bo;
+package springjpa.entity;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "COMPANY")
+@NamedQuery(name = "Company.findByNameNamedQuery",
+        query = "SELECT c FROM Company c WHERE c.name like  concat('%', ?1, '%')")
 public class Company {
 
     @Id

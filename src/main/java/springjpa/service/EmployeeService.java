@@ -1,18 +1,22 @@
 package springjpa.service;
 
-import springjpa.bo.Employee;
+import springjpa.entity.Employee;
+import springjpa.util.codetype.SearchType;
+import springjpa.util.dto.EmployeeDTO;
 
 import java.util.List;
 
 public interface EmployeeService {
 
-    Employee get(int id);
+    Employee get(Integer id);
 
-    List<Employee> findByLastName(String lastName);
+    List<Employee> findByStatus(Integer status);
 
-    List<Employee> findByLastNameQuery(String lastName);
+    List<Employee> findByExample(SearchType searchType, EmployeeDTO example);
 
-    List<Employee> findByLastNameNamedQuery(String lastName);
+    List<Employee> getByCompany(Integer companyId);
 
-    List<Employee> findAll();
+    void delete(Integer id);
+
+    Employee save(EmployeeDTO employee);
 }

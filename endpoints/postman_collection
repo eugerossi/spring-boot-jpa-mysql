@@ -1,0 +1,438 @@
+{
+	"info": {
+		"_postman_id": "21c41193-daa0-4909-9700-ac2951ab9be3",
+		"name": "personal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getCompany",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/company/?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"company",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listCompaniesStatus",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/company/list?status=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"company",
+						"list"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listCompaniesNoParam",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/company/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"company",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listCompaniesMethod",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/company/list/method/?name=ActiveMark",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"company",
+						"list",
+						"method",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "ActiveMark"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listCompaniesJPAQuery",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/company/list/query/?name=Jerry",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"company",
+						"list",
+						"query",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Jerry"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listCompaniesNamedQuery",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/company/list/namedquery/?name=Jerry",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"company",
+						"list",
+						"namedquery",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Jerry"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listEmployees",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/employee/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"employee",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEmployee",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/employee/?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"employee",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listEmployeesStatus",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/employee/list?status=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"employee",
+						"list"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listEmployeesNoParam",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/employee/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"employee",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listEmployeesSpec",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"companyId\": null,\r\n  \"firstName\": \"Joh\",\r\n  \"id\": null,\r\n  \"lastName\": \"\",\r\n  \"status\": null\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8082/employee/list/spec",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"employee",
+						"list",
+						"spec"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listEmployeesExample",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"companyId\": null,\r\n  \"firstName\": null,\r\n  \"id\": null,\r\n  \"lastName\": \"Cus\",\r\n  \"status\": null\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8082/employee/list/example",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"employee",
+						"list",
+						"example"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listEmployeesNamedQuery",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"companyId\": null,\r\n  \"firstName\": \"Joh\",\r\n  \"id\": null,\r\n  \"lastName\": \"\",\r\n  \"status\": null\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8082/employee/list/namedquery",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"employee",
+						"list",
+						"namedquery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listEmployeesByCompany",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"companyId\": null,\r\n  \"firstName\": \"Joh\",\r\n  \"id\": null,\r\n  \"lastName\": \"\",\r\n  \"status\": null\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8082/employee/list/company?companyId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"employee",
+						"list",
+						"company"
+					],
+					"query": [
+						{
+							"key": "companyId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

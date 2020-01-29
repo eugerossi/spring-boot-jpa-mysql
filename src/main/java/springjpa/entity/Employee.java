@@ -1,25 +1,21 @@
 package springjpa.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-@Table(name="EMPLOYEE")
+@Table(name = "EMPLOYEE")
 @NamedQuery(name = "Employee.findEmployeeByNamedQuery",
         query = "SELECT e FROM Employee e WHERE e.lastName like  concat('%', ?1, '%')")
-public class Employee implements Serializable {
+public class Employee {
 
     @Id
-    @Column(name = "ID", nullable = false, unique = true)
+    @GeneratedValue
     private Integer id;
 
-    @Column(name = "FIRST_NAME", nullable = false)
     private String firstName;
 
-    @Column(name = "LAST_NAME", nullable = false)
     private String lastName;
 
-    @Column(name = "STATUS", nullable = false)
     private Integer status;
 
     @ManyToOne

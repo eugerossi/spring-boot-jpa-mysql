@@ -16,7 +16,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <swagger.version>2.8.0</swagger.version>
+        <swagger.version>2.9.2</swagger.version>
         <commons-lang3.version>3.9</commons-lang3.version>
     </properties>
 
@@ -52,12 +52,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
         </dependency>
 
         <dependency>

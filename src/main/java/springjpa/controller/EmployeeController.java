@@ -17,47 +17,52 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping("/")
-    @ResponseBody
     public Employee getEmployeeParam(@RequestParam int id){
-        System.out.println("WS Called with id "+id);
+        System.out.println("WS Called with id " + id);
         return employeeService.get(id);
     }
 
     @GetMapping("/get/{id}")
-    @ResponseBody
-    public Employee getEmployeePath(@PathVariable int id){
-        System.out.println("WS Called with id "+id);
+    public Employee getEmployeePath(@PathVariable int id) {
+        System.out.println("WS Called with id " + id);
         return employeeService.get(id);
     }
 
+    @PostMapping("/")
+    public Employee saveEmployee(@RequestBody EmployeeDTO example) {
+        System.out.println("WS saveEmployee called with object " + example.toString());
+        return employeeService.save(example);
+    }
+
+    @DeleteMapping("/")
+    public void deleteEmployee(@RequestParam int id) {
+        System.out.println("WS deleteEmployee called with id " + id);
+        employeeService.delete(id);
+    }
+
     @GetMapping("/list")
-    @ResponseBody
-    public List<Employee> getEmployees(@RequestParam(required = false) Integer status){
+    public List<Employee> getEmployees(@RequestParam(required = false) Integer status) {
         return employeeService.findByStatus(status);
     }
 
     @GetMapping("/list/company")
-    @ResponseBody
-    public List<Employee> getEmployeesByCompany(@RequestParam Integer companyId){
+    public List<Employee> getEmployeesByCompany(@RequestParam Integer companyId) {
         return employeeService.getByCompany(companyId);
     }
 
     @PostMapping("/list/spec")
-    @ResponseBody
     public List<Employee> getEmployeesBySpec(@RequestBody EmployeeDTO example){
         System.out.println("WS getEmployeesByExample called with object "+example.toString());
         return employeeService.findByExample(SearchType.SPECIFICATION, example);
     }
 
     @PostMapping("/list/example")
-    @ResponseBody
     public List<Employee> getEmployeesByExample(@RequestBody EmployeeDTO example){
         System.out.println("WS getEmployeesByExample called with object "+example.toString());
         return employeeService.findByExample(SearchType.EXAMPLE, example);
     }
 
     @PostMapping("/list/namedquery")
-    @ResponseBody
     public List<Employee> getEmployeesByNamedQuery(@RequestBody EmployeeDTO example){
         System.out.println("WS getEmployeesByExampleNamedQuery called with object "+example.toString());
         return employeeService.findByExample(SearchType.NAMED_QUERY, example);

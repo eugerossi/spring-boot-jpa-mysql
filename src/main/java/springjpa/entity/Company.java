@@ -10,13 +10,10 @@ public class Company {
 
     @Id
     @GeneratedValue
-    @Column(name = "ID", nullable = false, unique = true)
     private int id;
 
-    @Column(name = "NAME", nullable = false)
     private String name;
 
-    @Column(name = "STATUS", nullable = false)
     private Integer status;
 
     public int getId() {

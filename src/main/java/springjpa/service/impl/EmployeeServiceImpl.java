@@ -18,7 +18,7 @@ import java.util.List;
 @Service("employeeService")
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private static final Sort SORT_CRITERIA = Sort.by(Sort.Direction.ASC, new String[]{"lastName","firstName"});
+    private static final Sort SORT_CRITERIA = Sort.by(Sort.Direction.ASC, "lastName", "firstName");
 
     @Autowired
     private EmployeeRepository employeeRepository;
@@ -35,7 +35,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     public List<Employee> findByExample(SearchType searchType, EmployeeDTO example)
     {
-        Employee employee = generateEmployeeFromDTO(example);
+        Employee employee = generateEmployeeFromDTO(example, false);
         switch (searchType)
         {
             case SPECIFICATION: return employeeRepository.findEmployeeBySpec(employee, SORT_CRITERIA);
@@ -57,15 +57,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     public Employee save(EmployeeDTO employeeDTO)
     {
-        return employeeRepository.save(generateEmployeeFromDTO(employeeDTO));
+        return employeeRepository.save(generateEmployeeFromDTO(employeeDTO, true));
     }
 
-    private Employee generateEmployeeFromDTO(EmployeeDTO employeeDTO)
-    {
+    private Employee generateEmployeeFromDTO(EmployeeDTO employeeDTO, boolean initializeStatus) {
         Employee employee = new Employee();
         employee.setFirstName(employeeDTO.getFirstName());
         employee.setLastName(employeeDTO.getLastName());
-        employee.setStatus(EmployeeStatus.ACTIVE.getVal());
+        if (initializeStatus) {
+            employee.setStatus(EmployeeStatus.ACTIVE.getVal());
+        }
         return employee;
     }
 }

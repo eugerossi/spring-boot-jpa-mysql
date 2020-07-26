@@ -19,4 +19,6 @@ public interface EmployeeService {
     void delete(Integer id);
 
     Employee save(EmployeeDTO employee);
+
+    List<Employee> getForeignEmployees();
 }

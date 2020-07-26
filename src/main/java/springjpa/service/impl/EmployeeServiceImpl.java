@@ -13,6 +13,7 @@ import springjpa.util.exception.EmployeeNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service("employeeService")
@@ -68,5 +69,13 @@ public class EmployeeServiceImpl implements EmployeeService {
             employee.setStatus(EmployeeStatus.ACTIVE.getVal());
         }
         return employee;
+    }
+
+    public List<Employee> getForeignEmployees()
+    {
+        List<Employee> employees = employeeRepository.findAll();
+        List<Employee> foreingEmployees = employees.stream().filter(x -> x.getCountry().getId() != 1).collect(Collectors.toList());
+
+        return foreingEmployees;
     }
 }

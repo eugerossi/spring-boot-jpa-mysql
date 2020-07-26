@@ -1,11 +1,15 @@
 package springjpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "EMPLOYEE")
 @NamedQuery(name = "Employee.findEmployeeByNamedQuery",
         query = "SELECT e FROM Employee e WHERE e.lastName like  concat('%', ?1, '%')")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Employee {
 
     @Id
@@ -18,8 +22,19 @@ public class Employee {
 
     private Integer status;
 
-    @ManyToOne
-    @JoinColumn(name = "COMPANY_ID")
+    private String address;
+
+    private String city;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private State state;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Country country;
+
+    private String zipCode;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private Company company;
 
     public void setId(Integer id) {
@@ -60,5 +75,60 @@ public class Employee {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return getFirstName().equals(employee.getFirstName()) &&
+                getLastName().equals(employee.getLastName()) &&
+                getCompany().equals(employee.getCompany());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFirstName(), getLastName(), getCompany());
     }
 }

@@ -2,22 +2,21 @@ package springjpa.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "COMPANY")
-@NamedQuery(name = "Company.findByNameNamedQuery",
-        query = "SELECT c FROM Company c WHERE c.name like  concat('%', ?1, '%')")
+@Table(name = "STATE")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Company {
-
+public class State {
     @Id
     @GeneratedValue
     private int id;
 
     private String name;
-
-    private Integer status;
 
     public int getId() {
         return id;
@@ -33,13 +32,5 @@ public class Company {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
     }
 }

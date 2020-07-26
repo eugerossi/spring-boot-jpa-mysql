@@ -18,8 +18,12 @@ public class CompanyServiceImpl implements CompanyService {
 
     private static final Sort SORT_CRITERIA = Sort.by(Sort.Direction.ASC, "name");
 
-    @Autowired
     private CompanyRepository companyRepository;
+
+    @Autowired
+    public CompanyServiceImpl (CompanyRepository companyRepository) {
+        this.companyRepository = companyRepository;
+    }
 
     public Company get(Integer id) {
         return companyRepository.findById(id).orElseThrow(

@@ -1,14 +1,13 @@
 package springjpa.util.codetype;
 
-public enum EmployeeStatus {
+public enum CompanyStatus {
     INACTIVE(0, "Inactive"),
-    ACTIVE(1, "Active"),
-    DELETED(2, "Staged");
+    ACTIVE(1, "Active");
 
     private Integer val;
     private String description;
 
-    EmployeeStatus(Integer val, String description)
+    CompanyStatus(Integer val, String description)
     {
         this.val = val;
         this.description = description;
@@ -25,7 +24,7 @@ public enum EmployeeStatus {
 
     public static String getDescriptionForVal(Integer val)
     {
-        for (EmployeeStatus status : EmployeeStatus.values()) {
+        for (CompanyStatus status : CompanyStatus.values()) {
             if (status.getVal().equals(val)) {
                 return status.description;
             }

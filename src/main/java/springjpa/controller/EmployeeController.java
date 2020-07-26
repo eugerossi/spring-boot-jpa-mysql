@@ -1,5 +1,6 @@
 package springjpa.controller;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import springjpa.entity.Employee;
@@ -17,9 +18,10 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping("/")
-    public Employee getEmployeeParam(@RequestParam int id){
+    @ApiOperation(value = "Gets an Employee from DB", notes = "Returns an Employee given its Id")
+    public EmployeeDTO getEmployeeParam(@RequestParam int id){
         System.out.println("WS Called with id " + id);
-        return employeeService.get(id);
+        return new EmployeeDTO(employeeService.get(id));
     }
 
     @GetMapping("/get/{id}")

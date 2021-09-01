@@ -106,5 +106,7 @@ public class EmployeeRepository extends SimpleJpaRepository<Employee, Integer> {
     {
         return findAll(companySpec(companyId), sortCriteria);
     }
+
+//    public List<Employee.EmployeeNames> findEmployeeNamesAll();
 }
 

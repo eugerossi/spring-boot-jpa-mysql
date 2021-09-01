@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import springjpa.entity.Employee;
+import springjpa.entity.EmployeeNames;
 import springjpa.service.EmployeeService;
 import springjpa.util.codetype.SearchType;
 import springjpa.util.dto.EmployeeDTO;
@@ -57,6 +58,12 @@ public class EmployeeController {
         System.out.println("WS getEmployeesByExample called with object "+example.toString());
         return employeeService.findByExample(SearchType.SPECIFICATION, example);
     }
+
+//    @GetMapping("/list/projection")
+//    public List<EmployeeNames> getEmployeeNames(){
+//        System.out.println("WS getEmployeeNames");
+//        return employeeService.getEmployeeNames();
+//    }
 
     @PostMapping("/list/example")
     public List<Employee> getEmployeesByExample(@RequestBody EmployeeDTO example){

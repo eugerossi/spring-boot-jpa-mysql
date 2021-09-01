@@ -131,4 +131,10 @@ public class Employee {
     public int hashCode() {
         return Objects.hash(getFirstName(), getLastName(), getCompany());
     }
+
+//    public interface EmployeeNames {
+//        public String getFirstName();
+//        public String getLastName();
+//    }
+    // resolve later
 }
